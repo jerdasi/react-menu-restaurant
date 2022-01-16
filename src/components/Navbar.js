@@ -1,6 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 const Navbar = () => {
+    const [show, setShow] = useState(false)
+
+    const showHandler = () => {
+        setShow(!show)
+    }
     return (
         <>
             <nav className="navbar navbar-main navbar-expand-md" style={{ backgroundColor: "#580e0dff" }}>
@@ -8,10 +13,10 @@ const Navbar = () => {
                     <a className="navbar-brand" href="index.html">
                         <img src={"img/Logo.png"} width="170" height="150" alt="" />
                     </a>
-                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav">
+                    <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#main_nav" onClick={showHandler}>
                         <span className="navbar-toggler-icon"></span>
                     </button>
-                    <div className="collapse navbar-collapse" id="main_nav">
+                    <div className="collapse navbar-collapse" id="main_nav" style={show ? { display: "block" } : { display: 'none' }}>
                         <div className="navbar-nav mx-auto mt-3">
                             <ul className="navbar-nav ml-2">
                                 <li className="nav-item dropdown mr-4">
